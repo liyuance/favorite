@@ -14,6 +14,10 @@ setup(
     author_email='liyuance@gmail.com',
     maintainer='liyuance',
     maintainer_email='liyuance@gmail.com',
+    packages=["favorite"],
+    entry_points = {
+        'console_scripts': ['fav=favorite.__main__:main'],
+    },
     license='BSD License',
     platforms=["all"],
     url='https://github.com/liyuance/favorite',
