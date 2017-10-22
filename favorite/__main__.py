@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+import fav
+
 def main():
-  print "Hello Favorite."
+  fav.main()
