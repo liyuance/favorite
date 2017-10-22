@@ -20,8 +20,8 @@ class FavManager(object):
     create_table_sql = """
       CREATE TABLE IF NOT EXISTS %s (
       id INTEGER PRIMARY KEY autoincrement,
-      command TEXT,
       date TEXT,
+      command TEXT,
       comment TEXT)
       """ % self._table_name
 
@@ -47,7 +47,7 @@ class FavManager(object):
       INSERT INTO %s VALUES(NULL, ?, ?, ?)
       """ % self._table_name
 
-    self._db_conn.execute(insert_sql, (command, now, comment))
+    self._db_conn.execute(insert_sql, (now, command, comment))
     self._db_conn.commit()
 
   def delete(self, fav_id):
@@ -141,7 +141,7 @@ def main():
     print_err("Clean up favorite done.")
 
   elif fav_commands:
-    print_err("Added command %s to favorite." % " ".join(fav_commands))
+    print_err("Added command `%s` to favorite." % " ".join(fav_commands))
     fav_manager.add(" ".join(fav_commands), options.comment)
 
   elif options.fav_id:

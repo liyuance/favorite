@@ -18,15 +18,15 @@ Options
 Example
 -------
 
-    fav -m "mem usage tool" free
+    $ fav -m "mem usage tool" free
 
-    fav -d 1
+    $ fav -d 1
 
-    fav -q "select * from ``fav`` where ``command`` like '%free%'"
+    $ fav -q "select * from ``fav`` where ``command`` like '%free%'"
 
-    fav -l
+    $ fav -l
 
-    fav -D
+    $ fav -D
 
 Table ``fav`` schema:
 -------
@@ -36,9 +36,9 @@ Table ``fav`` schema:
 +============+============+==========================+
 | id         | Integer    | fav command id           |
 +------------+------------+--------------------------+
-| command    | Text       | command to fav           |
+| date       | Text       | date add to fav          |
 +------------+------------+--------------------------+
-| date       | Text       | date of fav              |
+| command    | Text       | command                  |
 +------------+------------+--------------------------+
 | comment    | Text       | desc of fav this command |
 +------------+------------+--------------------------+
