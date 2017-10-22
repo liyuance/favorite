@@ -128,7 +128,10 @@ def print_err(str):
 def main():
   """ Entry point for the command-line tool """
 
-  parser = OptionParser(usage="fav [-m COMMENT] COMMAND", version="fav 0.1")
+  usage_str = """\n\t
+    fav [-l] [-D] [-d FAV_ID] [-m COMMENT] COMMAND
+  """
+  parser = OptionParser(usage=usage_str, version="fav 0.1")
   parser.disable_interspersed_args()
 
   parser.add_option("-m", "--comment", dest="comment", type=str, default="",
@@ -167,7 +170,7 @@ def main():
     fav_manager.query(options.query_str)
 
   else:
-    parser.print_usage(file=sys.stderr)
+    parser.print_help()
 
 if __name__ == "__main__":
   main()
