@@ -2,7 +2,7 @@
 favorite
 ====
 
-A tool for collect your favoriter commands.
+A tool for collect your favorite shell commands.
 
 Have fun.
 
