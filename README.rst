@@ -18,7 +18,7 @@ Options
 Example
 -------
 
-    $ fav -m "mem usage tool" free
+    $ fav -m "display mem used" free -g
 
     $ fav -d 1
 
