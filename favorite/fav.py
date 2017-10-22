@@ -6,6 +6,7 @@ import sys
 import time
 import sqlite3
 from optparse import OptionParser
+from texttable import Texttable
 
 class FavManager(object):
   """ Favorite manager """
@@ -71,8 +72,16 @@ class FavManager(object):
     :return:
     """
 
-    for fav in self._db_conn.execute(query_str):
-      print("\t".join(map(str, fav)))
+    query_result = []
+    cursor = self._db_conn.execute(query_str)
+    header = list(map(lambda x: x[0], cursor.description))
+    query_result.append(header)
+    for fav in cursor:
+      query_result.append(fav)
+
+    text_table = Texttable()
+    text_table.add_rows(query_result)
+    print text_table.draw()
 
   def list(self):
     """
@@ -84,9 +93,15 @@ class FavManager(object):
       SELECT * FROM %s
       """ % self._table_name
 
+    table_header = ["Id", "Date", "Command", "Comment"]
+    command_list = []
+    command_list.append(table_header)
     for fav in self._db_conn.execute(select_sql):
-      print("\t".join(map(str, fav)))
+      command_list.append(list(fav))
 
+    text_table = Texttable()
+    text_table.add_rows(command_list)
+    print text_table.draw()
 
   def clean(self):
     """

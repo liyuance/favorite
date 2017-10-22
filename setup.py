@@ -18,6 +18,9 @@ setup(
     entry_points = {
         'console_scripts': ['fav=favorite.__main__:main'],
     },
+    install_requires=[
+        "texttable >= 1.0.0"
+    ],
     license='BSD License',
     platforms=["all"],
     url='https://github.com/liyuance/favorite',
