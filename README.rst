@@ -22,7 +22,7 @@ Example
 
     $ fav -d 1
 
-    $ fav -q "select * from ``fav`` where ``command`` like '%free%'"
+    $ fav -q "select * from ``fav`` where ``command`` like '%free%' and date > '2017-10-21'"
 
     $ fav -l
 
